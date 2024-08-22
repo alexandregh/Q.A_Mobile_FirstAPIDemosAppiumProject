@@ -56,7 +56,7 @@ public class AndroidUiAutomator {
         elementByWebElement = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().selected(" + false + ")"));
         System.out.println("WebElement - By UIAutomator (selected): " + elementByWebElement.getAttribute("selected"));
 
-        // // By
+        // By
         System.out.println("""
 
                 ### By element (By) ###
