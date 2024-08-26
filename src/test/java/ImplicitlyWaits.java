@@ -63,8 +63,6 @@ public class ImplicitlyWaits {
                 Command_three,
                 Command_four,
                 alertDialog);
-// AQUI.............
-
 
         // SINGLE CHOICE LIST
         By SINGLE_CHOICE_LIST = AppiumBy.id("io.appium.android.apis:id/radio_button");
