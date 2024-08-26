@@ -9,6 +9,7 @@ import java.util.Map;
 
 public class ImplicitlyWaits {
     private static AppiumDriver driver;
+    String a;
     public static void main(String[] args) throws Exception {
         driver = CreateDriverSession.inicializeDriver("Android");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
