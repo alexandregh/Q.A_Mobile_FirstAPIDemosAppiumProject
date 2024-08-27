@@ -34,8 +34,8 @@ public class CreateDriverSession {
                 capabilities.setCapability("appium:app", APP_ANDROID_URL);
 
                 return new AndroidDriver(urlAppium,capabilities);
-            case "iOS":
-                /*final String APP_IOS_URL = System.getProperty("user.dir") +
+            /*case "iOS":
+                final String APP_IOS_URL = System.getProperty("user.dir") +
                         File.separator + "src" +
                         File.separator + "test" +
                         File.separator + "resources" +
