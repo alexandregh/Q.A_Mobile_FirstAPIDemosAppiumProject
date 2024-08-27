@@ -24,6 +24,51 @@ However, concepts such as packages, code reuse, among other concepts and good pr
 #### Image:
 ![img.png](img.png)
 
+<hr>
+
+#### Dependencies:
+>
+    <!-- https://mvnrepository.com/artifact/io.appium/java-client --> >
+    <dependency>
+        <groupId>io.appium</groupId>
+        <artifactId>java-client</artifactId>
+        <version>9.3.0</version>
+    </dependency>
+    Name: Java Client
+    Description: Java client for Appium Mobile Webdriver
+>
+    <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-simple -->
+    <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-simple</artifactId>
+        <version>2.0.16</version>
+        <scope>test</scope>
+    </dependency>
+    Name: SLF4J Simple Provider
+    Description: Binding/provider for SLF4J, which outputs all events to System.err. Only messages of level INFO and higher are printed.
+>
+    <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
+    <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-api</artifactId>
+        <version>5.11.0</version>
+        <scope>test</scope>
+    </dependency>
+    Name: JUnit Jupiter API
+    Description: JUnit Jupiter is the API for writing tests using JUnit 5.
+>
+    <!-- https://mvnrepository.com/artifact/org.jetbrains/annotations -->
+    <dependency>
+        <groupId>org.jetbrains</groupId>
+        <artifactId>annotations</artifactId>
+        <version>24.1.0</version>
+    </dependency>
+    Name: JetBrains Java Annotations
+    Description: A set of annotations used for code inspection support and code documentation.
+>
+
+<hr>
+
 #### Important Links:
 - https://appium.io/docs/en/2.1/guides/caps/ <br>
 - https://appium.github.io/appium.io/docs/en/writing-running-appium/caps/ <br>
