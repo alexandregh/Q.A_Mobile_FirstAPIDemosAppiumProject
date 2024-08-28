@@ -2,6 +2,7 @@ import createcapabilitdriversession.CreateDriverSession;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.AppiumDriver;
 import org.jetbrains.annotations.NotNull;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 
 import java.time.Duration;
@@ -9,6 +10,9 @@ import java.util.Map;
 
 public class ImplicitlyWaits {
     private static AppiumDriver driver;
+    static String text;
+    static String headerTitle;
+    static String[] textVector;
     public static void main(String[] args) throws Exception {
         driver = CreateDriverSession.inicializeDriver("Android");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -136,6 +140,17 @@ public class ImplicitlyWaits {
         driver.findElement(args[0]).click(); // app
         driver.findElement(args[1]).click(); // alertDialog
         driver.findElement(args[2]).click(); // OK_CANCEL_DIALOG_WITH_A_MESSAGE
+
+        // Assertions
+        Assertions.assertNotNull(driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().resourceId(\"android:id/icon\")")));
+        text = driver.findElement(AppiumBy.className("android.widget.TextView"))
+                .getAttribute("text");
+        text = text.replace("<", "");
+        text = text.replace(">", "");
+        textVector = text.split("\\n");
+        Assertions.assertEquals("Lorem ipsum dolor sit aie consectetur adipiscing", textVector[0]);
+        Assertions.assertEquals("Plloaso mako nuto siwuf cakso dodtos anr koop.", textVector[1]);
+
         driver.findElement(args[3]).click(); // OK
 
         // Cancel (OK_CANCEL_DIALOG_WITH_A_MESSAGE)
@@ -145,6 +160,15 @@ public class ImplicitlyWaits {
     public static void triggerAlertDialogOK_CANCEL_DIALOG_WITH_A_LONG_MESSAGE(By @NotNull ... args ) {
         // OK (OK_CANCEL_DIALOG_WITH_A_LONG_MESSAGE)
         driver.findElement(args[0]).click(); // OK_CANCEL_DIALOG_WITH_A_LONG_MESSAGE
+
+        // Assertions
+        Assertions.assertNotNull(driver.findElement(AppiumBy.className("android.widget.ImageView")));
+        headerTitle = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().resourceId(\"android:id/alertTitle\")"))
+                .getAttribute("text");
+        Assertions.assertEquals("Header title", headerTitle);
+        Assertions.assertTrue(driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().resourceId(\"android:id/message\")"))
+                .isDisplayed());
+
         driver.findElement(args[1]).click(); // OK
 
         // Cancel (OK_CANCEL_DIALOG_WITH_A_LONG_MESSAGE)
@@ -158,6 +182,14 @@ public class ImplicitlyWaits {
     public static void triggerAlertDialogOK_CANCEL_DIALOG_WITH_ULTRA_LONG_MESSAGE(By @NotNull ... args ) {
         // OK (OK_CANCEL_DIALOG_WITH_ULTRA_LONG_MESSAGE)
         driver.findElement(args[0]).click(); // OK_CANCEL_DIALOG_WITH_ULTRA_LONG_MESSAGE
+
+        // Assertions
+        Assertions.assertNotNull(driver.findElement(AppiumBy.className("android.widget.ImageView")));
+        headerTitle = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().resourceId(\"android:id/alertTitle\")"))
+                .getAttribute("text");
+        Assertions.assertEquals("Header title", headerTitle);
+        Assertions.assertTrue(driver.findElement(AppiumBy.id("android:id/message")).isDisplayed());
+
         driver.findElement(args[1]).click(); // OK
 
         // Cancel (OK_CANCEL_DIALOG_WITH_ULTRA_LONG_MESSAGE)
@@ -174,42 +206,101 @@ public class ImplicitlyWaits {
         // Command_one (LIST_DIALOG)
         driver.findElement(args[5]).click(); // alertDialog
         driver.findElement(args[0]).click(); // LIST_DIALOG
+
+        // Assertions
+        headerTitle = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().resourceId(\"android:id/alertTitle\")"))
+                .getAttribute("text");
+        Assertions.assertEquals("Header title", headerTitle);
+        text = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().text(\"Command one\")"))
+                .getAttribute("text");
+        Assertions.assertEquals("Command one", text);
+        text = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().text(\"Command two\")"))
+                .getAttribute("text");
+        Assertions.assertEquals("Command two", text);
+        text = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().text(\"Command three\")"))
+                .getAttribute("text");
+        Assertions.assertEquals("Command three", text);
+        text = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().text(\"Command four\")"))
+                .getAttribute("text");
+        Assertions.assertEquals("Command four", text);
+
         driver.findElement(args[1]).click(); // Command_one
+
+        // Assertions
+        text = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().resourceId(\"android:id/message\")"))
+                .getAttribute("text");
+        Assertions.assertEquals("You selected: 0 , Command one", text);
         pressButtonReturn();
 
         // Command_tho (LIST_DIALOG)
         driver.findElement(args[0]).click(); // LIST_DIALOG
         driver.findElement(args[2]).click(); // Command_tho
+
+        // Assertions
+        text = driver.findElement(AppiumBy.className("android.widget.TextView"))
+                .getAttribute("text");
+        Assertions.assertEquals("You selected: 1 , Command two", text);
         pressButtonReturn();
 
         // Command_three (LIST_DIALOG)
         driver.findElement(args[0]).click(); // LIST_DIALOG
         driver.findElement(args[3]).click(); // Command_three
+
+        // Assertions
+        text = driver.findElement(AppiumBy.className("android.widget.TextView"))
+                .getAttribute("text");
+        Assertions.assertEquals("You selected: 2 , Command three", text);
         pressButtonReturn();
 
         // Command_four (LIST_DIALOG)
         driver.findElement(args[0]).click(); // LIST_DIALOG
         driver.findElement(args[4]).click(); // Command_four
+
+        // Assertions
+        text = driver.findElement(AppiumBy.className("android.widget.TextView"))
+                .getAttribute("text");
+        Assertions.assertEquals("You selected: 3 , Command four", text);
         pressButtonReturn();
     }
     public static void triggerAlertDialogSINGLE_CHOICE_LIST(By @NotNull ... args) {
         // Map
         driver.findElement(args[0]).click(); // SINGLE_CHOICE_LIST
+
+        // Assertions
+        Assertions.assertNotNull(driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().resourceId(\"android:id/icon\")")));
+        headerTitle = driver.findElement(AppiumBy.className("android.widget.TextView"))
+                .getAttribute("text");
+        Assertions.assertEquals("Single choice list", headerTitle);
+
+        text = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().text(\"Map\")"))
+                .getAttribute("text");
         driver.findElement(args[3]).click(); // Map
         driver.findElement(args[1]).click(); // OK
 
         // Satellite
         driver.findElement(args[0]).click(); // SINGLE_CHOICE_LIST
+
+        // Assertions
+        text = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().text(\"Satellite\")"))
+                .getAttribute("text");
         driver.findElement(args[4]).click(); // Satellite
         driver.findElement(args[1]).click(); // OK
 
         // Traffic
         driver.findElement(args[0]).click(); // SINGLE_CHOICE_LIST
+
+        // Assertions
+        text = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().text(\"Traffic\")"))
+                .getAttribute("text");
         driver.findElement(args[5]).click(); // Traffic
         driver.findElement(args[1]).click(); // OK
 
         // StreetView
         driver.findElement(args[0]).click(); // SINGLE_CHOICE_LIST
+
+        // Assertions
+        text = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().text(\"Street view\")"))
+                .getAttribute("text");
         driver.findElement(args[6]).click(); // StreetView
         driver.findElement(args[1]).click(); // OK
 
@@ -220,7 +311,30 @@ public class ImplicitlyWaits {
     public static void triggerAlertDialogREPEAT_ALARM(By @NotNull ... args) {
         // Select All Repeat Alarm
         driver.findElement(args[0]).click(); // REPEAT_ALARM
+
+        // Assertions
+        Assertions.assertNotNull(driver.findElement(AppiumBy.className("android.widget.ImageView")));
+        headerTitle = driver.findElement(AppiumBy.className("android.widget.TextView"))
+                .getAttribute("text");
+        Assertions.assertEquals("Repeat alarm", headerTitle);
+
+        // Assertions
+        Assertions.assertEquals("Every Monday", driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().text(\"Every Monday\")"))
+                .getAttribute("text"));
+        Assertions.assertEquals("Every Tuesday", driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().text(\"Every Tuesday\")"))
+                .getAttribute("text"));
+        Assertions.assertEquals("Every Wednesday", driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().text(\"Every Wednesday\")"))
+                .getAttribute("text"));
+        Assertions.assertEquals("Every Thursday", driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().text(\"Every Thursday\")"))
+                .getAttribute("text"));
+        Assertions.assertEquals("Every Friday", driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().text(\"Every Friday\")"))
+                .getAttribute("text"));
+        Assertions.assertEquals("Every Saturday", driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().text(\"Every Saturday\")"))
+                .getAttribute("text"));
+        Assertions.assertEquals("Every Sunday", driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().text(\"Every Sunday\")"))
+                .getAttribute("text"));
         selectAllRepeatAlarm(args);
+
         driver.findElement(args[1]).click(); // OK
 
         // Deselect All Repeat Alarm
@@ -234,6 +348,22 @@ public class ImplicitlyWaits {
     }
     public static void triggerAlertDialogOK_CANCEL_DIALOG_WITH_TRADITIONAL_THEME(By @NotNull ... args) {
         driver.findElement(args[0]).click(); // OK_CANCEL_DIALOG_WITH_TRADITIONAL_THEME
+
+        // Assertions
+        Assertions.assertNotNull(driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().resourceId(\"android:id/icon\")")));
+        text = driver.findElement(AppiumBy.className("android.widget.TextView"))
+                .getAttribute("text");
+        text = text.replace("<", "");
+        text = text.replace(">", "");
+        textVector = text.split("\\n");
+        Assertions.assertEquals("Lorem ipsum dolor sit aie consectetur adipiscing", textVector[0]);
+        Assertions.assertEquals("Plloaso mako nuto siwuf cakso dodtos anr koop.", textVector[1]);
+
+        text = driver.findElement(AppiumBy.id("android:id/button1")).getAttribute("text");
+        Assertions.assertEquals("OK", text);
+        text = driver.findElement(AppiumBy.id("android:id/button2")).getAttribute("text");
+        Assertions.assertEquals("Cancel", text);
+
         driver.findElement(args[1]).click(); // OK
 
         driver.findElement(args[0]).click(); // OK_CANCEL_DIALOG_WITH_TRADITIONAL_THEME
@@ -241,6 +371,22 @@ public class ImplicitlyWaits {
     }
     public static void triggerAlertDialogOK_CANCEL_DIALOG_WITH_HOLO_LIGHT_THEME(By @NotNull ... args) {
         driver.findElement(args[0]).click(); // OK_CANCEL_DIALOG_WITH_HOLO_LIGHT_THEME
+
+        // Assertions
+        Assertions.assertNotNull(driver.findElement(AppiumBy.id("android:id/icon")));
+        text = driver.findElement(AppiumBy.id("android:id/alertTitle"))
+                .getAttribute("text");
+        text = text.replace("<", "");
+        text = text.replace(">", "");
+        textVector = text.split("\\n");
+        Assertions.assertEquals("Lorem ipsum dolor sit aie consectetur adipiscing", textVector[0]);
+        Assertions.assertEquals("Plloaso mako nuto siwuf cakso dodtos anr koop.", textVector[1]);
+
+        text = driver.findElement(AppiumBy.id("android:id/button1")).getAttribute("text");
+        Assertions.assertEquals("OK", text);
+        text = driver.findElement(AppiumBy.id("android:id/button2")).getAttribute("text");
+        Assertions.assertEquals("Cancel", text);
+
         driver.findElement(args[1]).click(); // OK
 
         driver.findElement(args[0]).click(); // OK_CANCEL_DIALOG_WITH_HOLO_LIGHT_THEME
@@ -250,6 +396,7 @@ public class ImplicitlyWaits {
         // Timer (PROGRESS_DIALOG)
         driver.findElement(args[0]).click(); // PROGRESS_DIALOG
     }
+
     private static void pressButtonReturn() {
         driver.executeScript("mobile: pressKey", Map.ofEntries(Map.entry("keycode", 4)));
     }
