@@ -11,7 +11,7 @@ However, concepts such as packages, code reuse, among other concepts and good pr
 
 - A package with a Driver Session Creation class;
 - Example classes for using various Appium resources using Selenium with the **"API Demos.apk"** app;
-- The app **"API Demos-debug.apk"** located in **"resources >> appAndroid >> ApiDemos-debug.apk"**.
+- The app **API Demos-debug.apk** located in **resources >> appAndroid >> ApiDemos-debug.apk**.
 
 <hr>
 
@@ -66,6 +66,12 @@ However, concepts such as packages, code reuse, among other concepts and good pr
     Name: JetBrains Java Annotations
     Description: A set of annotations used for code inspection support and code documentation.
 >
+
+<hr>
+
+#### Credits:
+This project made in Appium as well as its app **API Demos-debug.apk** was based on the following course:
+- https://www.udemy.com/course/the-complete-appium-course-for-ios-and-android/
 
 <hr>
 
