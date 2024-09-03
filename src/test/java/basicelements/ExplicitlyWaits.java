@@ -1,14 +1,21 @@
+package basicelements;
+
 import createcapabilitdriversession.CreateDriverSession;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.AppiumDriver;
 import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.Map;
 
 public class ExplicitlyWaits {
     private static AppiumDriver driver;
+    static WebDriverWait wait;
+    static By box;
     static String text;
     static String headerTitle;
     static String[] textVector;
@@ -140,6 +147,11 @@ public class ExplicitlyWaits {
         driver.findElement(args[1]).click(); // alertDialog
         driver.findElement(args[2]).click(); // OK_CANCEL_DIALOG_WITH_A_MESSAGE
 
+        // wait explícito
+        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        box = AppiumBy.androidUIAutomator("new UiSelector().resourceId(\"android:id/parentPanel\")");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(box));
+
         // Assertions
         Assertions.assertNotNull(driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().resourceId(\"android:id/icon\")")));
         text = driver.findElement(AppiumBy.className("android.widget.TextView"))
@@ -154,11 +166,22 @@ public class ExplicitlyWaits {
 
         // Cancel (OK_CANCEL_DIALOG_WITH_A_MESSAGE)
         driver.findElement(args[2]).click(); // OK_CANCEL_DIALOG_WITH_A_MESSAGE
+
+        // wait explícito
+        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        box = AppiumBy.androidUIAutomator("new UiSelector().resourceId(\"android:id/parentPanel\")");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(box));
+
         driver.findElement(args[4]).click(); // Cancel
     }
     public static void triggerAlertDialogOK_CANCEL_DIALOG_WITH_A_LONG_MESSAGE(By @NotNull ... args ) {
         // OK (OK_CANCEL_DIALOG_WITH_A_LONG_MESSAGE)
         driver.findElement(args[0]).click(); // OK_CANCEL_DIALOG_WITH_A_LONG_MESSAGE
+
+        // wait explícito
+        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        box = AppiumBy.androidUIAutomator("new UiSelector().resourceId(\"android:id/parentPanel\")");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(box));
 
         // Assertions
         Assertions.assertNotNull(driver.findElement(AppiumBy.className("android.widget.ImageView")));
@@ -172,15 +195,32 @@ public class ExplicitlyWaits {
 
         // Cancel (OK_CANCEL_DIALOG_WITH_A_LONG_MESSAGE)
         driver.findElement(args[0]).click(); // OK_CANCEL_DIALOG_WITH_A_LONG_MESSAGE
+
+        // wait explícito
+        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        box = AppiumBy.androidUIAutomator("new UiSelector().resourceId(\"android:id/parentPanel\")");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(box));
+
         driver.findElement(args[2]).click(); // Cancel
 
         // Something (OK_CANCEL_DIALOG_WITH_A_LONG_MESSAGE)
         driver.findElement(args[0]).click(); // OK_CANCEL_DIALOG_WITH_A_LONG_MESSAGE
+
+        // wait explícito
+        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        box = AppiumBy.androidUIAutomator("new UiSelector().resourceId(\"android:id/parentPanel\")");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(box));
+
         driver.findElement(args[3]).click(); // Something
     }
     public static void triggerAlertDialogOK_CANCEL_DIALOG_WITH_ULTRA_LONG_MESSAGE(By @NotNull ... args ) {
         // OK (OK_CANCEL_DIALOG_WITH_ULTRA_LONG_MESSAGE)
         driver.findElement(args[0]).click(); // OK_CANCEL_DIALOG_WITH_ULTRA_LONG_MESSAGE
+
+        // wait explícito
+        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        box = AppiumBy.androidUIAutomator("new UiSelector().resourceId(\"android:id/parentPanel\")");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(box));
 
         // Assertions
         Assertions.assertNotNull(driver.findElement(AppiumBy.className("android.widget.ImageView")));
@@ -193,10 +233,25 @@ public class ExplicitlyWaits {
 
         // Cancel (OK_CANCEL_DIALOG_WITH_ULTRA_LONG_MESSAGE)
         driver.findElement(args[0]).click(); // OK_CANCEL_DIALOG_WITH_ULTRA_LONG_MESSAGE
+
+        // wait explícito
+        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        box = AppiumBy.androidUIAutomator("new UiSelector().resourceId(\"android:id/parentPanel\")");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(box));// wait explícito
+        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        box = AppiumBy.androidUIAutomator("new UiSelector().resourceId(\"android:id/parentPanel\")");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(box));
+
         driver.findElement(args[2]).click(); // Cancel
 
         // Something (OK_CANCEL_DIALOG_WITH_ULTRA_LONG_MESSAGE)
         driver.findElement(args[0]).click(); // OK_CANCEL_DIALOG_WITH_ULTRA_LONG_MESSAGE
+
+        // wait explícito
+        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        box = AppiumBy.androidUIAutomator("new UiSelector().resourceId(\"android:id/parentPanel\")");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(box));
+
         driver.findElement(args[3]).click(); // Something
     }
     public static void triggerAlertDialogLIST_DIALOG(By @NotNull ... args) {
@@ -205,6 +260,11 @@ public class ExplicitlyWaits {
         // Command_one (LIST_DIALOG)
         driver.findElement(args[5]).click(); // alertDialog
         driver.findElement(args[0]).click(); // LIST_DIALOG
+
+        // wait explícito
+        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        box = AppiumBy.androidUIAutomator("new UiSelector().resourceId(\"android:id/parentPanel\")");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(box));
 
         // Assertions
         headerTitle = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().resourceId(\"android:id/alertTitle\")"))
@@ -225,6 +285,11 @@ public class ExplicitlyWaits {
 
         driver.findElement(args[1]).click(); // Command_one
 
+        // wait explícito
+        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        box = AppiumBy.androidUIAutomator("new UiSelector().resourceId(\"android:id/parentPanel\")");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(box));
+
         // Assertions
         text = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().resourceId(\"android:id/message\")"))
                 .getAttribute("text");
@@ -235,6 +300,11 @@ public class ExplicitlyWaits {
         driver.findElement(args[0]).click(); // LIST_DIALOG
         driver.findElement(args[2]).click(); // Command_tho
 
+        // wait explícito
+        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        box = AppiumBy.androidUIAutomator("new UiSelector().resourceId(\"android:id/parentPanel\")");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(box));
+
         // Assertions
         text = driver.findElement(AppiumBy.className("android.widget.TextView"))
                 .getAttribute("text");
@@ -243,7 +313,18 @@ public class ExplicitlyWaits {
 
         // Command_three (LIST_DIALOG)
         driver.findElement(args[0]).click(); // LIST_DIALOG
+
+        // wait explícito
+        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        box = AppiumBy.androidUIAutomator("new UiSelector().resourceId(\"android:id/parentPanel\")");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(box));
+
         driver.findElement(args[3]).click(); // Command_three
+
+        // wait explícito
+        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        box = AppiumBy.androidUIAutomator("new UiSelector().resourceId(\"android:id/parentPanel\")");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(box));
 
         // Assertions
         text = driver.findElement(AppiumBy.className("android.widget.TextView"))
@@ -253,6 +334,12 @@ public class ExplicitlyWaits {
 
         // Command_four (LIST_DIALOG)
         driver.findElement(args[0]).click(); // LIST_DIALOG
+
+        // wait explícito
+        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        box = AppiumBy.androidUIAutomator("new UiSelector().resourceId(\"android:id/parentPanel\")");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(box));
+
         driver.findElement(args[4]).click(); // Command_four
 
         // Assertions
@@ -264,6 +351,11 @@ public class ExplicitlyWaits {
     public static void triggerAlertDialogSINGLE_CHOICE_LIST(By @NotNull ... args) {
         // Map
         driver.findElement(args[0]).click(); // SINGLE_CHOICE_LIST
+
+        // wait explícito
+        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        box = AppiumBy.androidUIAutomator("new UiSelector().resourceId(\"android:id/parentPanel\")");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(box));
 
         // Assertions
         Assertions.assertNotNull(driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().resourceId(\"android:id/icon\")")));
@@ -279,6 +371,11 @@ public class ExplicitlyWaits {
         // Satellite
         driver.findElement(args[0]).click(); // SINGLE_CHOICE_LIST
 
+        // wait explícito
+        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        box = AppiumBy.androidUIAutomator("new UiSelector().resourceId(\"android:id/parentPanel\")");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(box));
+
         // Assertions
         text = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().text(\"Satellite\")"))
                 .getAttribute("text");
@@ -287,6 +384,11 @@ public class ExplicitlyWaits {
 
         // Traffic
         driver.findElement(args[0]).click(); // SINGLE_CHOICE_LIST
+
+        // wait explícito
+        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        box = AppiumBy.androidUIAutomator("new UiSelector().resourceId(\"android:id/parentPanel\")");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(box));
 
         // Assertions
         text = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().text(\"Traffic\")"))
@@ -297,6 +399,11 @@ public class ExplicitlyWaits {
         // StreetView
         driver.findElement(args[0]).click(); // SINGLE_CHOICE_LIST
 
+        // wait explícito
+        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        box = AppiumBy.androidUIAutomator("new UiSelector().resourceId(\"android:id/parentPanel\")");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(box));
+
         // Assertions
         text = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().text(\"Street view\")"))
                 .getAttribute("text");
@@ -305,11 +412,22 @@ public class ExplicitlyWaits {
 
         // Cancel
         driver.findElement(args[0]).click(); // SINGLE_CHOICE_LIST
+
+        // wait explícito
+        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        box = AppiumBy.androidUIAutomator("new UiSelector().resourceId(\"android:id/parentPanel\")");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(box));
+
         driver.findElement(args[2]).click(); // Cancel
     }
     public static void triggerAlertDialogREPEAT_ALARM(By @NotNull ... args) {
         // Select All Repeat Alarm
         driver.findElement(args[0]).click(); // REPEAT_ALARM
+
+        // wait explícito
+        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        box = AppiumBy.androidUIAutomator("new UiSelector().resourceId(\"android:id/parentPanel\")");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(box));
 
         // Assertions
         Assertions.assertNotNull(driver.findElement(AppiumBy.className("android.widget.ImageView")));
@@ -338,15 +456,32 @@ public class ExplicitlyWaits {
 
         // Deselect All Repeat Alarm
         driver.findElement(args[0]).click(); // REPEAT_ALARM
+
+        // wait explícito
+        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        box = AppiumBy.androidUIAutomator("new UiSelector().resourceId(\"android:id/parentPanel\")");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(box));
+
         deselectAllRepeatAlarm(args);
         driver.findElement(args[1]).click(); // OK
 
         // Cancel Repeat Alarm
         driver.findElement(args[0]).click(); // REPEAT_ALARM
+
+        // wait explícito
+        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        box = AppiumBy.androidUIAutomator("new UiSelector().resourceId(\"android:id/parentPanel\")");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(box));
+
         driver.findElement(args[2]).click(); // Cancel
     }
     public static void triggerAlertDialogOK_CANCEL_DIALOG_WITH_TRADITIONAL_THEME(By @NotNull ... args) {
         driver.findElement(args[0]).click(); // OK_CANCEL_DIALOG_WITH_TRADITIONAL_THEME
+
+        // wait explícito
+        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        box = AppiumBy.androidUIAutomator("new UiSelector().resourceId(\"android:id/parentPanel\")");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(box));
 
         // Assertions
         Assertions.assertNotNull(driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().resourceId(\"android:id/icon\")")));
@@ -366,10 +501,21 @@ public class ExplicitlyWaits {
         driver.findElement(args[1]).click(); // OK
 
         driver.findElement(args[0]).click(); // OK_CANCEL_DIALOG_WITH_TRADITIONAL_THEME
+
+        // wait explícito
+        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        box = AppiumBy.androidUIAutomator("new UiSelector().resourceId(\"android:id/parentPanel\")");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(box));
+
         driver.findElement(args[2]).click(); // Cancel
     }
     public static void triggerAlertDialogOK_CANCEL_DIALOG_WITH_HOLO_LIGHT_THEME(By @NotNull ... args) {
         driver.findElement(args[0]).click(); // OK_CANCEL_DIALOG_WITH_HOLO_LIGHT_THEME
+
+        // wait explícito
+        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        box = AppiumBy.androidUIAutomator("new UiSelector().resourceId(\"android:id/parentPanel\")");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(box));
 
         // Assertions
         Assertions.assertNotNull(driver.findElement(AppiumBy.id("android:id/icon")));
@@ -389,6 +535,12 @@ public class ExplicitlyWaits {
         driver.findElement(args[1]).click(); // OK
 
         driver.findElement(args[0]).click(); // OK_CANCEL_DIALOG_WITH_HOLO_LIGHT_THEME
+
+        // wait explícito
+        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        box = AppiumBy.androidUIAutomator("new UiSelector().resourceId(\"android:id/parentPanel\")");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(box));
+
         driver.findElement(args[2]).click(); // Cancel
     }
     public static void triggerAlertDialogPROGRESS_DIALOG(By @NotNull ... args) {
