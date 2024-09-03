@@ -83,7 +83,7 @@ This project made in Appium as well as its app **API Demos-debug.apk** was based
 - https://developer.android.com/reference/androidx/test/uiautomator/UiSelector <br>
 - https://stuff.mit.edu/afs/sipb/project/android/docs/tools/help/uiautomator/UiSelector.html <br>
 - https://www.waldo.com/blog/uiselectors-testing-with-appium <br>
-###### Automating Mobile Gestures
+###### Automating Mobile Gestures With UiAutomator2 Backend
 - https://github.com/appium/appium-uiautomator2-driver/blob/master/docs/android-mobile-gestures.md
 - https://www.browserstack.com/docs/app-automate/appium/advanced-features/appium-gestures
 - https://monfared.medium.com/gestures-in-appium-part1-history-rectangular-w3c-actions-d3bb58922119
