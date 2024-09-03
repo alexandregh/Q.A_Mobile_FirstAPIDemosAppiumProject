@@ -1,3 +1,5 @@
+package basicelements;
+
 import com.google.common.collect.ImmutableMap;
 import createcapabilitdriversession.CreateDriverSession;
 import io.appium.java_client.AppiumBy;
