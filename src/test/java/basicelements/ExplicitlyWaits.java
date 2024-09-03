@@ -5,7 +5,6 @@ import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 
-import java.time.Duration;
 import java.util.Map;
 
 public class ExplicitlyWaits {
@@ -134,7 +133,6 @@ public class ExplicitlyWaits {
                 Hyde,
                 Cancel);
     }
-
 
     public static void triggerAlertDialogOK_CANCEL_DIALOG_WITH_A_MESSAGE(By @NotNull ... args) {
         // OK (OK_CANCEL_DIALOG_WITH_A_MESSAGE)
@@ -397,7 +395,6 @@ public class ExplicitlyWaits {
         // Timer (PROGRESS_DIALOG)
         driver.findElement(args[0]).click(); // PROGRESS_DIALOG
     }
-
 
     private static void pressButtonReturn() {
         driver.executeScript("mobile: pressKey", Map.ofEntries(Map.entry("keycode", 4)));

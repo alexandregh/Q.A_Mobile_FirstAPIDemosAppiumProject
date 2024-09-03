@@ -76,11 +76,14 @@ This project made in Appium as well as its app **API Demos-debug.apk** was based
 <hr>
 
 #### Important Links:
+###### Appium Desired Capabilities
 - https://appium.io/docs/en/2.1/guides/caps/ <br>
 - https://appium.github.io/appium.io/docs/en/writing-running-appium/caps/ <br>
+###### UiSelector class
 - https://developer.android.com/reference/androidx/test/uiautomator/UiSelector <br>
 - https://stuff.mit.edu/afs/sipb/project/android/docs/tools/help/uiautomator/UiSelector.html <br>
 - https://www.waldo.com/blog/uiselectors-testing-with-appium <br>
+###### Vysor app
 - https://www.vysor.io/ <br>
 
 <hr>
