@@ -124,7 +124,6 @@ public class AndroidGestures {
 
         executeSwipeGestureByElementId(driver, element,"up");
         Thread.sleep(2000);
-        //driver.executeScript("mobile: pressKey", Map.ofEntries(Map.entry("keycode", 4)));
     }
     public static void scrollGestureByCoordinates(@NotNull AppiumDriver driver) {
         executeWait(driver);
