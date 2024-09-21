@@ -13,7 +13,7 @@ import java.time.Duration;
 import java.util.Map;
 
 public class ExplicitlyWaits {
-    private static AppiumDriver driver;
+    static AppiumDriver driver;
     static WebDriverWait wait;
     static By box;
     static String text;

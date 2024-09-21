@@ -11,7 +11,7 @@ import java.time.Duration;
 import java.util.Map;
 
 public class ImplicitlyWaits {
-    private static AppiumDriver driver;
+    static AppiumDriver driver;
     static String text;
     static String headerTitle;
     static String[] textVector;
