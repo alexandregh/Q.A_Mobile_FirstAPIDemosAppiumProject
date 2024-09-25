@@ -27,10 +27,15 @@ public class CreateDriverSession {
                 capabilities.setCapability("appium:automationName", "UiAutomator2");
                 capabilities.setCapability("appium:udid", "emulator-5554");
 //                capabilities.setCapability("appium:avd", "Pixel_5");
+//                capabilities.setCapability("appium:uiautomator2ServerLaunchTimeout", 50000);
 //                capabilities.setCapability("appium:avdLaunchTimeout", 180000);
 //                capabilities.setCapability("appium:newCommandTimeout", 300);
                 capabilities.setCapability("appium:appPackage", "io.appium.android.apis");
                 capabilities.setCapability("appium:appActivity", ".ApiDemos");
+//                capabilities.setCapability("appium:unlockType", "pin"); // Used by unlockType "pin".
+//                capabilities.setCapability("appium:unlockKey", "1111"); // Used by unlockType "pin".
+//                capabilities.setCapability("appium:unlockType", "pattern"); // Used by unlockType "pattern".
+//                capabilities.setCapability("appium:unlockKey", "5412369"); // Used by unlockType "pattern".
                 capabilities.setCapability("appium:app", APP_ANDROID_URL);
                 /* The two settings below are used in the Gesture type
                  * "pinchOpenGesture" and "doubleClickGestureMaps" of this project.
