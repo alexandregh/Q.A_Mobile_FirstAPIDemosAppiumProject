@@ -198,7 +198,6 @@ public class AndroidGestures {
                 "direction", direction,
                 "percent", 1.0
         ));
-
     }
     private static void executeScrollGestureByFirstElementButton(@NotNull AppiumDriver driver, @NotNull WebElement element, String direction) {
         for (int i = 1; i <= 3; i++) {
